@@ -1,12 +1,10 @@
-import {
-  copy,
-  readerFromStreamReader,
-} from "https://deno.land/std@0.185.0/streams/mod.ts";
+import { copy } from "streams/copy.ts";
+import { readerFromStreamReader } from "streams/reader_from_stream_reader.ts";
 
 export default async function saveTar(file: File, to: string) {
   const reader = readerFromStreamReader(file.stream().getReader());
   const writer = await Deno.create(to);
   await copy(reader, writer);
-  await writer.close()
+  writer.close();
   return to;
 }

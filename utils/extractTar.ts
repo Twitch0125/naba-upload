@@ -1,8 +1,8 @@
-import { Untar } from "https://deno.land/std@0.185.0/archive/mod.ts";
-import { ensureFile } from "https://deno.land/std@0.185.0/fs/ensure_file.ts";
-import { copy } from "https://deno.land/std@0.185.0/streams/mod.ts";
-import { readerFromStreamReader } from "https://deno.land/std@0.185.0/streams/reader_from_stream_reader.ts";
-import { fetch as fileFetch } from "file_fetch";
+import { Untar } from "archive/mod.ts";
+import { ensureFile } from "fs/mod.ts";
+import { copy } from "streams/copy.ts";
+import { readerFromStreamReader } from "streams/reader_from_stream_reader.ts";
+import { fetch as fileFetch } from "file_fetch/mod.ts";
 export default async function extractTar(path: string, to: string) {
   //decompress gzipped tar
   const url = import.meta.resolve(path);

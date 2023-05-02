@@ -1,0 +1,11 @@
+*/node_modules
+*/.vscode
+*/.git
+*/test
+package.json
+pnpm-lock.yaml
+uno.config.ts
+README.md
+test/
+.vscode/
+.git/

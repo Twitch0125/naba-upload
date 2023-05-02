@@ -1,4 +1,4 @@
-import { ensureDir } from "https://deno.land/std@0.185.0/fs/ensure_dir.ts";
+import { ensureDir } from "fs/ensure_dir.ts";
 import extractTar from "./extractTar.ts";
 import saveTar from "./saveTar.ts";
 

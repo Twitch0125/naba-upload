@@ -1,7 +1,7 @@
-import { fileFetch } from "$deps";
+import { fetch as fileFetch } from "file_fetch";
 import extractTar from "../../utils/extractTar.ts";
 import saveTar from "../../utils/saveTar.ts";
-import { exists } from "https://deno.land/std@0.185.0/fs/exists.ts";
+import { exists } from "fs/exists.ts";
 import { assert } from "https://deno.land/std@0.96.0/_util/assert.ts";
 
 Deno.test(
