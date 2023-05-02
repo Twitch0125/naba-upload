@@ -1,4 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
+
 import {
   copy,
   readerFromStreamReader,
@@ -10,8 +11,11 @@ export const handler: Handlers = {
     return await ctx.render();
   },
   async POST(req, ctx) {
-    //save input-file field from form and write to uploads/reports.tar.gz
+    //write to uploads/reports.tar.gz
     const form = await req.formData();
+    if (!form) {
+      return await ctx.render();
+    }
     const file = form.get("file") as File;
     if (!file) {
       console.error("ERROR", file);
@@ -40,8 +44,23 @@ export default function Home(props: PageProps<{ status: string }>) {
           rel="stylesheet"
         />
       </Head>
-      <FileUpload />
-      {props.data?.status === "success" && <p>Upload successful!</p>}
+      <main>
+        <form method="post" encType="multipart/form-data">
+          <label
+            for="file-upload"
+            class="text-sm uppercase font-medium tracking-wide text-primary"
+          >
+            Report Upload
+          </label>
+          <div class="mt-2 flex justify-center rounded-lg bg-surface border-color-primary/20 border-1 border-dashed px-6 py-10">
+            <div class="flow-layout flow-sm">
+              <p class="font-semibold">Upload OOTP Online League Report</p>
+              <FileUpload name="file" />
+              {props.data?.status === "success" && <p>Upload successful!</p>}
+            </div>
+          </div>
+        </form>
+      </main>
     </>
   );
 }
