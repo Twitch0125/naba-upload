@@ -1,11 +1,8 @@
 import { Head } from "$fresh/runtime.ts";
-
-import {
-  copy,
-  readerFromStreamReader,
-} from "https://deno.land/std@0.185.0/streams/mod.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import FileUpload from "../islands/FileUpload.tsx";
+import handleTarUpload from "../utils/handleTarUpload.ts";
+
 export const handler: Handlers = {
   async GET(req, ctx) {
     return await ctx.render();
@@ -17,13 +14,8 @@ export const handler: Handlers = {
       return await ctx.render();
     }
     const file = form.get("file") as File;
-    if (!file) {
-      console.error("ERROR", file);
-      return await ctx.render({ status: "error" });
-    }
-    const reader = readerFromStreamReader(file.stream().getReader());
-    const writer = Deno.createSync("uploads/report.tar.gz");
-    await copy(reader, writer);
+    if (!file) return await ctx.render({ status: "error" });
+    await handleTarUpload(file);
     return await ctx.render({ status: "success" });
   },
 };
