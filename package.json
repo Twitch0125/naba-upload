@@ -1,0 +1,19 @@
+{
+  "name": "fresh-test",
+  "version": "1.0.0",
+  "description": "### Usage",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "uno": "unocss -c uno.config.ts --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@iconify-json/tabler": "^1.1.74",
+    "@julr/unocss-preset-forms": "^0.0.5",
+    "@unocss/preset-icons": "^0.51.8",
+    "@unocss/transformer-variant-group": "^0.51.8",
+    "unocss": "^0.51.8"
+  }
+}
