@@ -23,7 +23,7 @@ export default function Home(props: PageProps<{ status: string }>) {
   return (
     <>
       <Head>
-        <title>Fresh App</title>
+        <title>NABA UPLOAD</title>
         <link rel="stylesheet" href="/uno.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
