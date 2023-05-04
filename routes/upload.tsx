@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+import { Head, asset } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import FileUpload from "../islands/FileUpload.tsx";
 import handleTarUpload from "../utils/handleTarUpload.ts";
@@ -24,7 +24,7 @@ export default function Home(props: PageProps<{ status: string }>) {
     <>
       <Head>
         <title>NABA UPLOAD</title>
-        <link rel="stylesheet" href="/uno.css" />
+        <link rel="stylesheet" href={asset("/uno.css")} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
