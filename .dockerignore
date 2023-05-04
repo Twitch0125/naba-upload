@@ -2,6 +2,8 @@
 **/.vscode
 **/.git
 **/test
+**/uploads
+**/extracted
 package.json
 pnpm-lock.yaml
 uno.config.ts
@@ -9,3 +11,4 @@ README.md
 test/
 .vscode/
 .git/
+.env

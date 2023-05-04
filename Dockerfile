@@ -7,5 +7,6 @@ USER deno
 WORKDIR /app
 
 ADD . .
+ENV AUTH_PASSWORD=password
 RUN deno cache --unstable --no-npm main.ts
 CMD ["run", "-A", "--unstable", "main.ts"]
