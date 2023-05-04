@@ -3,8 +3,37 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import FileUpload from "../islands/FileUpload.tsx";
 import handleTarUpload from "../utils/handleTarUpload.ts";
 
+function createUnauthorizedResponse() {
+  return new Response(null, {
+    headers: {
+      "WWW-Authenticate": 'Basic realm="upload", charset="UTF-8"',
+    },
+    status: 401,
+  });
+}
+
 export const handler: Handlers = {
   async GET(req, ctx) {
+    const authorization = req.headers.get("Authorization");
+    if (!authorization) {
+      return createUnauthorizedResponse();
+    }
+    const credentials = authorization.split("Basic ")[1];
+    if (!credentials) {
+      return createUnauthorizedResponse();
+    }
+    let password;
+    try {
+      const [_, data] = atob(credentials).split(":");
+      password = data;
+    } catch {
+      return new Response(null, {
+        status: 400,
+      });
+    }
+    if (password !== Deno.env.get("AUTH_PASSWORD")) {
+      return createUnauthorizedResponse();
+    }
     return await ctx.render();
   },
   async POST(req, ctx) {
