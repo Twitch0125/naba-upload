@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "naba-dump-fresh"
+app = "naba-dump"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "ord"
@@ -41,3 +41,6 @@ processes = []
     interval = "15s"
     restart_limit = 0
     timeout = "2s"
+[mounts]
+source="naba_data"
+destination="/app/extracted"
