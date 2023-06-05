@@ -1,6 +1,11 @@
 // deno-lint-ignore-file
 import transformerVariantGroup from "@unocss/transformer-variant-group";
-import { defineConfig, presetUno, toEscapedSelector as e } from "unocss";
+import {
+  defineConfig,
+  presetUno,
+  presetWebFonts,
+  toEscapedSelector as e,
+} from "unocss";
 import { presetForms } from "@julr/unocss-preset-forms";
 import presetIcons from "@unocss/preset-icons";
 
@@ -16,9 +21,6 @@ export default defineConfig({
     },
   },
   theme: {
-    fontFamily: {
-      sans: "Rubik",
-    },
     colors: {
       surface: "white",
       "bg-base": "#f5f5f4",
@@ -109,5 +111,10 @@ export default defineConfig({
     presetUno(),
     presetIcons(),
     presetForms(),
+    presetWebFonts({
+      fonts: {
+        sans: "Rubik",
+      },
+    }),
   ],
 });

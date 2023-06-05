@@ -60,10 +60,6 @@ export default function Home(props: PageProps<{ status: string }>) {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <main>
         <form method="post" encType="multipart/form-data">
