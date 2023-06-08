@@ -6,6 +6,13 @@
 
 import { start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
-import { load } from "https://deno.land/std@0.185.0/dotenv/mod.ts";
+import { load } from "dotenv";
+
+
+Deno.addSignalListener("SIGINT", () => Deno.exit());
+Deno.addSignalListener("SIGTERM", () => Deno.exit());
+Deno.addSignalListener("SIGABRT", () => Deno.exit());
+
+
 await load({ export: true });
 await start(manifest);

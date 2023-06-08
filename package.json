@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "uno": "unocss -c uno.config.ts --watch"
+    "uno": "unocss -c uno.config.ts --watch",
+    "uno:build": "unocss -c uno.config.ts"
+
   },
   "author": "",
   "license": "ISC",

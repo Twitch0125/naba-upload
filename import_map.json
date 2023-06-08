@@ -15,7 +15,7 @@
     "streams": "https://deno.land/std@0.185.0/streams/mod.ts",
     "streams/": "https://deno.land/std@0.185.0/streams/",
     "file_server": "https://deno.land/std@0.185.0/http/file_server.ts",
-    "file_server/": "https://deno.land/std@0.185.0/http/file_server.ts/"
-
+    "file_server/": "https://deno.land/std@0.185.0/http/file_server.ts/",
+    "dotenv": "https://deno.land/std@0.185.0/dotenv/mod.ts"
   }
 }
